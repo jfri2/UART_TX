@@ -1,12 +1,13 @@
 # uart_tx
+
 VHDL implementation of a UART (RS-232) transmitter.
----
+
 John Fritz
 
 UART TX
 
 10/06/2015
----
+
 This VHDL code describes a UART TX function. The objective is to interface an FPGA with a PC. The entity behaves as the DCE in the communications framework. 
 
 Inputs:
