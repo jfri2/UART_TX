@@ -35,8 +35,6 @@ end uart_tx;
 architecture behavioral of uart_tx is
 --took signals out of this because they were causing delays on start
 --in a process signals update at the end while variables update in order
-	--signal trigger : bit;
-	--signal data_reg : bit_vector(10 downto 0);
 begin
 -----------------------------------------------------------------------------------
 -- main uart process	
@@ -83,26 +81,3 @@ begin
 -----------------------------------------------------------------------------------	
 end behavioral;
 -----------------------------------------------------------------------------------	
-				
-				
-				
-				
-				
-				
-				
-				
-				
-
-
-
-
-
-
-
-
-
-
-
-
-
-
