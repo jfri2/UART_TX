@@ -40,7 +40,6 @@ architecture behavioral of uart_tx is
 begin
 -----------------------------------------------------------------------------------
 -- main uart process	
-
 	process(clk, rst)
 		variable bit_count : integer range 0 to 11;
 		variable parity_v : bit;
@@ -52,20 +51,19 @@ begin
 			tx_active := '0';		
 			txd <= '1';				--idle state
 			cts <= '0';				--cant send during reset condition
-			--parity_v := '0';
 		elsif (clk'event and clk='1') then
 			if send ='1' then
-			bit_count := 0;		--init counter
+			bit_count := 0;		
 				--calculate parity bit
 				 parity_v := '0';
 				 for i in data'range loop
 					 parity_v := parity_v xor data(i);
 				 end loop;
 				--load input data into register
-				data_reg(9 downto 2) := data(7 downto 0);	--load into register
-				data_reg(10) := '0';							--start bit
-				data_reg(1 downto 0) := parity_v & '1';	--parity & stop bit
-				tx_active := '1';		--set state to transmitting					
+				data_reg(9 downto 2) := data(7 downto 0);	--load data register
+				data_reg(10) := '0';				--load start bit
+				data_reg(1 downto 0) := parity_v & '1';		--load parity & stop bit
+				tx_active := '1';				--set state to transmitting					
 			elsif (send='0' and tx_active='0') then
 				cts <= '1';
 			end if;
