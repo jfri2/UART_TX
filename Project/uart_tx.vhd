@@ -49,6 +49,7 @@ begin
 			tx_active := '0';		
 			txd <= '1';				--idle state
 			cts <= '0';				--cant send during reset condition
+--TODO:: This section is causing errors. bit count should be initialized at the end of transmission and reset ONLY			
 		elsif (clk'event and clk='1') then
 			if send ='1' then
 			bit_count := 0;		
